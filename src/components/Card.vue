@@ -1,5 +1,5 @@
 <template>
-    <div class="col-3 mb-4">
+    <div class="col-xxl-5 col-lg-3 col-md-4 col-sm-6 col-12 mb-4 d-sm-block d-flex justify-content-center">
     <div class="dcard d-flex flex-column align-items-center">
         <div class="imagecard">
             <img class="img-fluid" :src="image" alt="">
@@ -37,8 +37,14 @@
 
 <style lang="scss" scoped>
 .dcard {
-    width: 250px;
+    width: 220px;
+    height: 410px;
     background-color: #90693d;
    
 }
+
+@media (min-width: 1400px) {.col-xxl-5 {
+    flex: 0 0 auto;
+    width: 20%;
+}}
 </style>

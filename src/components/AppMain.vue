@@ -4,7 +4,7 @@
             <SelectArchetype />
         </div>
         <div class="container bg-white pt-3">
-        <div class="container cardlist">
+        <div class="container cardlist ">
             <div class="row">
             <Card :name="card.name" :archetype='card.archetype' :image='imagesUrl + card.id + ".jpg"' v-for="card in cards" />
         </div>
