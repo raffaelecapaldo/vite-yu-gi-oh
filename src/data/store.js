@@ -9,6 +9,7 @@ export const store = reactive({
     limit: 'num=50&offset=0',
     cards:[],
     selArc:'All',
+    loading:true,
 
 
 })

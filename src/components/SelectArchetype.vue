@@ -27,6 +27,7 @@ import { store } from '../data/store';
 
                 },
                 getCards() {
+                    store.loading = true;
                 if (store.selArc == 'All') {
                     this.selection = ''
                 }
@@ -36,7 +37,7 @@ import { store } from '../data/store';
                 axios.get(store.apiUrl + store.endCards + this.selection + store.limit).then((res) => {
                     store.cards = res.data.data;
                     this.info = res.data.meta;
-
+                    store.loading = false;
                 });
             }
             },

@@ -9,7 +9,10 @@
         <div class="container bg-white pt-3">
             
         <div @changedvalue="getCards()" class="container cardlist ">
-            <div class="row">
+            <div v-if="store.loading" class="loading">
+                Loading...
+            </div>
+            <div v-else class="row">
             <Card :name="card.name" :archetype='card.archetype' :image='imagesUrl + card.id + ".jpg"' v-for="card in store.cards" />
         </div>
         </div>
@@ -47,6 +50,7 @@ import Card from './Card.vue';
                 axios.get(store.apiUrl + store.endCards + this.selection + store.limit).then((res) => {
                     store.cards = res.data.data;
                     this.info = res.data.meta;
+                    store.loading = false;
 
                 });
             }
