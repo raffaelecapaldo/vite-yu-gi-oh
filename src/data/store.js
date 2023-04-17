@@ -6,6 +6,7 @@ export const store = reactive({
     endCards: 'cardinfo.php',
     yugiohCards: [],
     SelArchertype:"",
+    limit: '?num=50&offset=0'
 
 
 })
