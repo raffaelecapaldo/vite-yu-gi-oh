@@ -1,6 +1,7 @@
 <template>
 <AppHeader />
 <AppMain />
+<footer class="p-3"></footer>
 </template>
 
 <script>
