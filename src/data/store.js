@@ -10,6 +10,7 @@ export const store = reactive({
     cards:[],
     selArc:'All',
     loading:true,
+    showned:'',
 
 
 })
