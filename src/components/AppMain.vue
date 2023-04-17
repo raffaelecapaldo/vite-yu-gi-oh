@@ -3,7 +3,11 @@
         <div class="container">
             <SelectArchetype />
         </div>
+        <div class="container founded bg-black text-white text-center p-3 fw-bold">
+                 {{ info.current_rows }} cards shown
+            </div>
         <div class="container bg-white pt-3">
+            
         <div class="container cardlist ">
             <div class="row">
             <Card :name="card.name" :archetype='card.archetype' :image='imagesUrl + card.id + ".jpg"' v-for="card in cards" />
@@ -27,6 +31,7 @@ import Card from './Card.vue';
         data() {
             return {
                 cards: [],
+                info: [],
                 imagesUrl: 'https://images.ygoprodeck.com/images/cards/',
             }
         },
@@ -34,7 +39,7 @@ import Card from './Card.vue';
             getCards() {
                 axios.get(store.apiUrl + store.endCards + store.limit).then((res) => {
                     this.cards = res.data.data;
-                    console.log('a'+ this.cards);
+                    this.info = res.data.meta;
 
                 });
             }
