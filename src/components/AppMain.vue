@@ -8,9 +8,9 @@
             </div>
         <div class="container bg-white pt-3">
             
-        <div class="container cardlist ">
+        <div @changedvalue="getCards()" class="container cardlist ">
             <div class="row">
-            <Card :name="card.name" :archetype='card.archetype' :image='imagesUrl + card.id + ".jpg"' v-for="card in cards" />
+            <Card :name="card.name" :archetype='card.archetype' :image='imagesUrl + card.id + ".jpg"' v-for="card in store.cards" />
         </div>
         </div>
     </div>
@@ -30,15 +30,22 @@ import Card from './Card.vue';
         },
         data() {
             return {
-                cards: [],
+                store,
+                selection:'',
                 info: [],
                 imagesUrl: 'https://images.ygoprodeck.com/images/cards/',
             }
         },
         methods: {
             getCards() {
-                axios.get(store.apiUrl + store.endCards + store.limit).then((res) => {
-                    this.cards = res.data.data;
+                if (store.selArc == 'All') {
+                    this.selection = ''
+                }
+                else {
+                    this.selection = "archetype='" + this.selection + "'&"
+                }
+                axios.get(store.apiUrl + store.endCards + this.selection + store.limit).then((res) => {
+                    store.cards = res.data.data;
                     this.info = res.data.meta;
 
                 });

@@ -12,7 +12,7 @@ import AppMain from './components/AppMain.vue'
       AppMain
     },
     methods () {
-      getCards
+      
     }
   }
 </script>
