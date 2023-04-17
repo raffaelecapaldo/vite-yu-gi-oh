@@ -1,7 +1,8 @@
 <template>
     <div class="selection py-3">
     <select class="form-select">
-  <option v-for="archetype,index in Archetypes" :selected="index==0" :value="archetype.archetype_name">{{archetype.archetype_name}}</option>
+        <option selected value="All">All</option>
+  <option v-for="archetype,index in Archetypes" :value="archetype.archetype_name">{{archetype.archetype_name}}</option>
 </select>
 </div>
 </template>
