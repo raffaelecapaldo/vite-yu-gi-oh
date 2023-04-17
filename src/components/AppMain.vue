@@ -3,6 +3,9 @@
         <div class="container">
             <SelectArchetype />
         </div>
+        <div class="container cardlist">
+
+        </div>
     </main>
 </template>
 
@@ -12,10 +15,16 @@ import SelectArchetype from './SelectArchetype.vue';
         name:'AppMain',
         components: {
             SelectArchetype
-        }
+        },
+        
     }
 </script>
 
 <style lang="scss" scoped>
+
+.cardlist {
+    background-color: white;
+    height: 300px;
+}
 
 </style>

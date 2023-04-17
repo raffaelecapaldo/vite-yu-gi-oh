@@ -5,6 +5,7 @@ export const store = reactive({
     endArchetypes: 'archetypes.php',
     endCards: 'cardinfo.php',
     yugiohCards: [],
+    SelArchertype:"",
 
 
 })

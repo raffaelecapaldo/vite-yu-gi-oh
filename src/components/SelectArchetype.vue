@@ -1,7 +1,7 @@
 <template>
     <div class="selection py-3">
     <select class="form-select">
-  <option v-for="archetype in Archetypes" :value="archetype.archetype_name">{{archetype.archetype_name}}</option>
+  <option v-for="archetype,index in Archetypes" :selected="index==0" :value="archetype.archetype_name">{{archetype.archetype_name}}</option>
 </select>
 </div>
 </template>
@@ -34,6 +34,6 @@ import { store } from '../data/store';
 
 <style lang="scss" scoped>
 .form-select {
-    width: 100px;
+    width: 250px;
 }
 </style>
