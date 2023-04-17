@@ -37,6 +37,7 @@ import { store } from '../data/store';
                 axios.get(store.apiUrl + store.endCards + this.selection + store.limit).then((res) => {
                     store.cards = res.data.data;
                     this.info = res.data.meta;
+                    store.showned = res.data.meta.current_rows;
                     store.loading = false;
                 });
             }

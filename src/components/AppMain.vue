@@ -4,7 +4,7 @@
             <SelectArchetype />
         </div>
         <div class="container founded bg-black text-white text-center p-3 fw-bold">
-                 {{ info.current_rows }} cards shown
+                 {{ store.showned }} cards shown
             </div>
         <div class="container bg-white pt-3">
             
@@ -37,6 +37,7 @@ import Card from './Card.vue';
                 selection:'',
                 info: [],
                 imagesUrl: 'https://images.ygoprodeck.com/images/cards/',
+                
             }
         },
         methods: {
@@ -50,6 +51,7 @@ import Card from './Card.vue';
                 axios.get(store.apiUrl + store.endCards + this.selection + store.limit).then((res) => {
                     store.cards = res.data.data;
                     this.info = res.data.meta;
+                    store.showned = res.data.meta.current_rows;
                     store.loading = false;
 
                 });
