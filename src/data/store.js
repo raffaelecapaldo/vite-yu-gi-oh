@@ -15,7 +15,7 @@ export const store = reactive({
         archetype: '',
         name: '',
         num: 60,
-        offset:'0', //passandolo come int 0 non lo inseriva nei parametri
+        offset:'0', //not empty, but char 0
     }
 
 
