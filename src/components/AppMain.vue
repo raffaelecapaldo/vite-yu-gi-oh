@@ -1,14 +1,14 @@
 <template>
     <main>
         <div class="container">
-            <SelectArchetype />
+            <SelectArchetype @valueChanged="getCards()" />
         </div>
         <div class="container founded bg-black text-white text-center p-3 fw-bold">
                  {{ store.showned }} cards shown
             </div>
         <div class="container bg-white pt-3">
             
-        <div @changedvalue="getCards()" class="container cardlist ">
+        <div class="container cardlist ">
             <div v-if="store.loading" class="loading d-flex container justify-content-center align-items-center flex-column">
                 <div class="fs-3 fw-bold">
                     <p>Loading...</p>
@@ -46,18 +46,18 @@ import Card from './Card.vue';
         },
         methods: {
             getCards() {
+                    store.loading = true;
                 if (store.selArc == 'All') {
                     this.selection = ''
                 }
                 else {
-                    this.selection = "archetype='" + this.selection + "'&"
+                    this.selection = "archetype=" + store.selArc + "&"
                 }
                 axios.get(store.apiUrl + store.endCards + this.selection + store.limit).then((res) => {
                     store.cards = res.data.data;
                     this.info = res.data.meta;
                     store.showned = res.data.meta.current_rows;
                     store.loading = false;
-
                 });
             }
         },

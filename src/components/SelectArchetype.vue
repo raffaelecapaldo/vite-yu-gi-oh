@@ -1,6 +1,6 @@
 <template>
     <div class="selection py-3">
-    <select @change="getCards()" v-model="store.selArc" class="form-select">
+    <select @change="$emit('valueChanged')" v-model="store.selArc" class="form-select">
         <option selected value="All">All</option>
   <option v-for="archetype,index in Archetypes" :value="archetype.archetype_name">{{archetype.archetype_name}}</option>
 </select>
@@ -26,21 +26,6 @@ import { store } from '../data/store';
                 });
 
                 },
-                getCards() {
-                    store.loading = true;
-                if (store.selArc == 'All') {
-                    this.selection = ''
-                }
-                else {
-                    this.selection = "archetype=" + store.selArc + "&"
-                }
-                axios.get(store.apiUrl + store.endCards + this.selection + store.limit).then((res) => {
-                    store.cards = res.data.data;
-                    this.info = res.data.meta;
-                    store.showned = res.data.meta.current_rows;
-                    store.loading = false;
-                });
-            }
             },
             mounted() {
                 this.getArchetypes();
