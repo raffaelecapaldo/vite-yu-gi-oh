@@ -1,6 +1,6 @@
 <template>
     <div class="selection py-3">
-    <select @change="$emit('valueChanged')" v-model="store.search.archetype" class="form-select">
+    <select v-model="store.search.archetype" class="form-select">
         <option selected value="">All</option>
   <option v-for="archetype,index in Archetypes" :value="archetype.archetype_name">{{archetype.archetype_name}}</option>
 </select>

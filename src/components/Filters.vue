@@ -6,7 +6,7 @@
 
 
   <SelectArchetype @change="$emit('searchCards')" />
-    <div class="input-group ms-2 w-25">
+    <div class="input-group mysearch ms-2">
         <input v-model="store.search.fname" type="text" class="form-control" placeholder="Card name">
         <button @click="$emit('searchCards')" class="btn btn-primary" type="button" id="button-addon2">Search</button>
     </div>
@@ -46,5 +46,17 @@ export default {
 select {
     width: 100px;
     margin-right: 10px;
+}
+
+.mysearch {
+    width:25% !important;
+    flex:unset;
+}
+
+@media screen and (max-width:768px) {
+    .mysearch{
+        width: 300px  !important;
+        margin:0 !important;
+    }
 }
 </style>
