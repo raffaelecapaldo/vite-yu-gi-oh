@@ -16,6 +16,7 @@ export const store = reactive({
         fname: '',
         num: 60,
         offset:'0', //not empty, but char 0
+        language:'',
     },
     notfound: false
 

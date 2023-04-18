@@ -4,10 +4,10 @@
         <div class="imagecard">
             <img class="img-fluid" :src="image" alt="">
         </div>
-        <div class="titlecard mt-2 text-center">
+        <div class="titlecard mt-2 p-1 text-center">
         <h3 class="fs-5 text-white">{{name}}</h3>
     </div>
-    <div class="typecard ">
+    <div class="typecard p-1 ">
         <p class="fw-bold">{{archetype}}</p>
     </div>
     </div>
@@ -38,7 +38,7 @@
 <style lang="scss" scoped>
 .dcard {
     width: 220px;
-    height: 410px;
+    height: 440px;
     background-color: #90693d;
    
 }

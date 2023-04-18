@@ -1,7 +1,6 @@
 <template>
     <main>
         <div class="container d-flex align-items-center">
-            <SelectArchetype @value-changed="getCards()" />
             <Filters @search-cards="getCards()" @reset-all="getCards()"/>
         </div>
         <div class="container founded bg-black text-white text-center p-3 fw-bold">
@@ -23,7 +22,6 @@
 <script>
 import axios from 'axios';
 import { store } from '../data/store';
-import SelectArchetype from './SelectArchetype.vue';
 import Loader from './Loader.vue'
 import Card from './Card.vue';
 import Filters from './Filters.vue';
@@ -31,7 +29,6 @@ import Error from './Error.vue'
 export default {
     name: 'AppMain',
     components: {
-        SelectArchetype,
         Card,
         Loader,
         Filters,
