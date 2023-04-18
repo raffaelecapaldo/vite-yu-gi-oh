@@ -11,6 +11,12 @@ export const store = reactive({
     selArc:'All',
     loading:true,
     showned:'',
+    search: {
+        archetype: '',
+        name: '',
+        num: 60,
+        offset:'0', //passandolo come int 0 non lo inseriva nei parametri
+    }
 
 
 })
