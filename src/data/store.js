@@ -13,7 +13,7 @@ export const store = reactive({
     showned:'',
     search: {
         archetype: '',
-        name: '',
+        fname: '',
         num: 60,
         offset:'0', //not empty, but char 0
     }

@@ -1,7 +1,8 @@
 <template>
     <main>
-        <div class="container">
-            <SelectArchetype @valueChanged="getCards()" />
+        <div class="container d-flex align-items-center">
+            <SelectArchetype @value-changed="getCards()" />
+            <Filters @search-cards="getCards()" />
         </div>
         <div class="container founded bg-black text-white text-center p-3 fw-bold">
             {{ store.showned }} cards shown
@@ -24,12 +25,14 @@ import { store } from '../data/store';
 import SelectArchetype from './SelectArchetype.vue';
 import Loader from './Loader.vue'
 import Card from './Card.vue';
+import Filters from './Filters.vue';
 export default {
     name: 'AppMain',
     components: {
         SelectArchetype,
         Card,
-        Loader
+        Loader,
+        Filters
     },
     data() {
         return {
