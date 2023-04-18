@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="container d-flex flex-wrap justify-content-center justify-content-md-start align-items-center p-1 ">
-            <Filters @search-cards="getCards()" @reset-all="getCards()"/>
+            <Filters @search-cards="getDefaultCards()" @reset-all="getDefaultCards()"/>
         </div>
         <div class="container founded bg-black text-white text-center p-3 fw-bold">
             {{ store.showned }} cards shown
@@ -13,6 +13,9 @@
                 <div v-else class="row">
                     <Card :name="card.name" :archetype='card.archetype' :image='card.card_images[0].image_url'
                         v-for="card in store.cards" />
+                        <div class="buttons d-flex justify-content-center">
+                        <a @click='getMoreCards()' class="load-more text-center w-25 p-2 mb-1">Load more</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -67,6 +70,15 @@ export default {
 
 
         },
+        getMoreCards() {
+            store.search.num = store.search.num + 30;
+            this.getCards();
+        },
+        getDefaultCards() {
+            store.search.num = 60;
+            this.getCards();
+
+        }
 
     },
     created() {
@@ -79,5 +91,20 @@ export default {
 <style lang="scss" scoped>
 .cardlist {
     background-color: white;
+}
+
+.load-more {
+    background-color: rgba(12, 116, 38, 0.774);
+    color:white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: large;
+    font-weight: bold;
+    cursor:pointer;
+    transition: 0.3s;
+
+    &:hover {
+        background-color: rgba(12, 116, 38, 1);
+    }
 }
 </style>
