@@ -9,17 +9,17 @@
         <div class="container bg-white pt-3">
             
         <div @changedvalue="getCards()" class="container cardlist ">
-            <div v-if="store.loading" class="loading d-flex  justify-content-center align-items-center flex-column">
+            <div v-if="store.loading" class="loading d-flex container justify-content-center align-items-center flex-column">
                 <div class="fs-3 fw-bold">
                     <p>Loading...</p>
                 </div>
                 <div class="imgloading">
-                <img src="/img/shuffle.gif" alt="loading gif">
+                <img class="img-fluid" src="/img/shuffle.gif" alt="loading gif">
             </div>
                
             </div>
             <div v-else class="row">
-            <Card :name="card.name" :archetype='card.archetype' :image='imagesUrl + card.id + ".jpg"' v-for="card in store.cards" />
+            <Card :name="card.name" :archetype='card.archetype' :image='card.card_images[0].image_url' v-for="card in store.cards" />
         </div>
         </div>
     </div>
@@ -41,9 +41,7 @@ import Card from './Card.vue';
             return {
                 store,
                 selection:'',
-                info: [],
-                imagesUrl: 'https://images.ygoprodeck.com/images/cards/',
-                
+                info: [],                
             }
         },
         methods: {
