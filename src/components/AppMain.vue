@@ -2,7 +2,7 @@
     <main>
         <div class="container d-flex align-items-center">
             <SelectArchetype @value-changed="getCards()" />
-            <Filters @search-cards="getCards()" />
+            <Filters @search-cards="getCards()" @reset-all="getCards()"/>
         </div>
         <div class="container founded bg-black text-white text-center p-3 fw-bold">
             {{ store.showned }} cards shown
