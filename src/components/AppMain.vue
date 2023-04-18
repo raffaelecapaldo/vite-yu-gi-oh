@@ -1,6 +1,6 @@
 <template>
     <main>
-        <div class="container d-flex align-items-center">
+        <div class="container d-flex flex-wrap align-items-center p-1 ">
             <Filters @search-cards="getCards()" @reset-all="getCards()"/>
         </div>
         <div class="container founded bg-black text-white text-center p-3 fw-bold">

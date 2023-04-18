@@ -5,7 +5,7 @@
     </select>
 
 
-  <SelectArchetype @value-changed="getCards()" />
+  <SelectArchetype @change="$emit('searchCards')" />
     <div class="input-group ms-2 w-25">
         <input v-model="store.search.fname" type="text" class="form-control" placeholder="Card name">
         <button @click="$emit('searchCards')" class="btn btn-primary" type="button" id="button-addon2">Search</button>
@@ -20,6 +20,7 @@ import SelectArchetype from './SelectArchetype.vue';
 export default {
 
     name: 'Filters',
+    emits: ['searchCards', 'resetAll'],
     data() {
         return {
             store,
