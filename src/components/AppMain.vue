@@ -14,7 +14,7 @@
                     <Card :name="card.name" :archetype='card.archetype' :image='card.card_images[0].image_url'
                         v-for="card in store.cards" />
                         <div class="buttons d-flex justify-content-center">
-                        <a @click='getMoreCards()' class="load-more text-center w-25 p-2 mb-1">Load more</a>
+                        <a @click='getMoreCards()' class="load-more text-center mb-1">Load more</a>
                     </div>
                 </div>
             </div>
@@ -102,9 +102,11 @@ export default {
     font-weight: bold;
     cursor:pointer;
     transition: 0.3s;
+    padding: 10px 50px;
 
     &:hover {
         background-color: rgba(12, 116, 38, 1);
+        
     }
 }
 </style>
