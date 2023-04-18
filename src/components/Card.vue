@@ -4,7 +4,7 @@
         <div class="imagecard">
             <img class="img-fluid" :src="image" alt="">
         </div>
-        <div class="titlecard text-center">
+        <div class="titlecard mt-2 text-center">
         <h3 class="fs-5 text-white">{{name}}</h3>
     </div>
     <div class="typecard ">
