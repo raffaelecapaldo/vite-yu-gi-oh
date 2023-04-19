@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="container d-flex flex-wrap justify-content-center justify-content-md-start align-items-center p-1 ">
-            <Filters @search-cards="getDefaultCards()" @reset-all="getDefaultCards()"/>
+            <Filters @search-cards="getDefaultCards()" @reset-all="getDefaultCards()" />
         </div>
         <div class="container founded bg-black text-white text-center p-3 fw-bold">
             {{ store.showned }} cards shown
@@ -13,7 +13,7 @@
                 <div v-else class="row">
                     <Card :name="card.name" :archetype='card.archetype' :image='card.card_images[0].image_url'
                         v-for="card in store.cards" />
-                        <div class="buttons d-flex justify-content-center">
+                    <div class="buttons d-flex justify-content-center">
                         <a @click='getMoreCards()' class="load-more text-center mb-1">Load more</a>
                     </div>
                 </div>
@@ -48,7 +48,12 @@ export default {
         getCards() {
             store.notfound = false;
             store.search.fname.toString().toLowerCase();
-            store.loading = true;
+            if (store.loading === 'notneeded') {
+                store.loading = false;
+            }
+            else {
+                store.loading = true;
+            }
             let params = {}
             for (let key in store.search) {
                 if (store.search[key]) {
@@ -71,6 +76,7 @@ export default {
 
         },
         getMoreCards() {
+            store.loading = 'notneeded'; // la splash page da fastidio nel load more
             store.search.num = store.search.num + 30;
             this.getCards();
         },
@@ -95,18 +101,18 @@ export default {
 
 .load-more {
     background-color: rgba(12, 116, 38, 0.774);
-    color:white;
+    color: white;
     text-decoration: none;
     text-transform: uppercase;
     font-size: large;
     font-weight: bold;
-    cursor:pointer;
+    cursor: pointer;
     transition: 0.3s;
     padding: 10px 50px;
 
     &:hover {
         background-color: rgba(12, 116, 38, 1);
-        
+
     }
 }
 </style>
