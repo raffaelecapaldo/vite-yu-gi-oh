@@ -9,7 +9,7 @@
         <div class="container bg-white pt-3">
             <div class="container cardlist ">
                 <Loader v-if="store.loading" />
-                <Error v-if="store.notfound" />
+                <Error v-else-if="store.notfound" />
                 <div v-else class="row">
                     <Card :name="card.name" :archetype='card.archetype' :image='card.card_images[0].image_url'
                         v-for="card in store.cards" />
