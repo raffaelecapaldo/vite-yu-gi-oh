@@ -13,7 +13,8 @@
                 <div v-else class="row">
                     <Card :name="card.name" :archetype='card.archetype' :image='card.card_images[0].image_url'
                         v-for="card in store.cards" />
-                    <div class="buttons d-flex justify-content-center">
+                    <!-- mostra solo se ci sono altre carte mostrabili -->
+                    <div v-if='store.showned === store.search.num' class="buttons d-flex justify-content-center">
                         <a @click='getMoreCards()' class="load-more text-center mb-1">Load more</a>
                     </div>
                 </div>
